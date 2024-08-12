@@ -31,7 +31,7 @@ const _animationLoop = (frames, intervalMS) => {
   setInterval(() => {
     const favicon = document.getElementById('favico');
     favicon.setAttribute('href', cachedImages[counter]);
-    counter < frames ? counter++ : counter = 0;
+    counter <= frames-1 ? counter++ : counter = 0;
 
   }, intervalMS);
 }
@@ -39,7 +39,7 @@ const _animationLoop = (frames, intervalMS) => {
 const _loadImages = async (framesLength) => {
   const promisses = [];
 
-  for (let index = 0; index <= framesLength; index++) {
+  for (let index = 0; index <= framesLength-1; index++) {
     const frameUrl = `${animationPath}/frame_${index}.png`;
     promisses.push(fetch(frameUrl).then((response) => response.blob()).then(async (blob) => {
       const base64Frame = await _blobToBase64(blob);
@@ -55,5 +55,5 @@ const initFaviconAnimationLoop = async (frames, intervalMS) => {
   _animationLoop(frames, intervalMS);
 }
 
-initFaviconAnimationLoop(36, 100);
+initFaviconAnimationLoop(37, 100);
 
