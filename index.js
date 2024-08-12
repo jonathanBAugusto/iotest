@@ -32,13 +32,14 @@ const _animationLoop = (frames, intervalMS) => {
     const favicon = document.getElementById('favico');
     favicon.setAttribute('href', cachedImages[counter]);
     counter < frames ? counter++ : counter = 0;
+
   }, intervalMS);
 }
 
 const _loadImages = async (framesLength) => {
   const promisses = [];
 
-  for (let index = 0; index < framesLength; index++) {
+  for (let index = 0; index <= framesLength; index++) {
     const frameUrl = `${animationPath}/frame_${index}.png`;
     promisses.push(fetch(frameUrl).then((response) => response.blob()).then(async (blob) => {
       const base64Frame = await _blobToBase64(blob);
