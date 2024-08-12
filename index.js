@@ -1,4 +1,4 @@
-const animationPath = '/assets/favicon_animation_frames'
+const animationPath = 'https://jonathanbaugusto.github.io/iotest/assets/favicon_animation_frames'
 
 const animationLoop = (frames, intervalMS) => {
     let counter = 0;
