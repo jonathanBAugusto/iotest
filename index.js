@@ -2,7 +2,6 @@ const animationPath = 'https://jonathanbaugusto.github.io/iotest/assets/favicon_
 
 const cachedImages = {};
 
-
 const _blobToBase64 = (blob) => {
   let blobUrl = URL.createObjectURL(blob);
 
